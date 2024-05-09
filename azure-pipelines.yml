@@ -20,6 +20,6 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'filePath'
-    script: "$(System.DefaultWorkingDirectory)/test.sh"
+    script: "$(System.DefaultWorkingDirectory)/projectFolder/test.sh"
   env:
     MYSECRET: $(Foo)

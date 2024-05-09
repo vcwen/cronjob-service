@@ -14,7 +14,11 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
+    python3 test.py
+  displayName: 'Run a python script'
+
+- script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
     sh test.sh
-  displayName: 'Run a multi-line script'
+  displayName: 'Run a shell script'

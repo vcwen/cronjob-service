@@ -16,11 +16,5 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-    echo $(ls -hl)
+    sh test.sh
   displayName: 'Run a multi-line script'
-- task: Bash@3
-  inputs:
-    targetType: 'filePath'
-    script: "$(System.DefaultWorkingDirectory)/projectFolder/test.sh"
-  env:
-    MYSECRET: $(Foo)

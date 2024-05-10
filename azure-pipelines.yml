@@ -29,7 +29,7 @@ parameters:
     default: "JP"
 
   - name: blob
-    displayName: 'Blob name (optional, default is: airtable-[base_code]-[yyyyMMddhhmm].zip)'
+    displayName: 'Blob name (required for importing, and optional for exporting, default format: airtable-[base_code]-[yyyyMMddhhmm].zip,the timezone is UTC, e.g. airtable-JP-202405031011.zip)'
     type: string
     default: 'auto-generated'
 

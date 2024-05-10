@@ -1,12 +1,10 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger: none
 
+resources:
+  - repo: self
+
 pool:
-  vmImage: ubuntu-latest
+  vmImage: "ubuntu-latest"
 
 parameters:
   - name: action
@@ -29,24 +27,19 @@ parameters:
     default: "JP"
 
   - name: blob
-    displayName: 'enter blob name(required for importing, and optional for exporting, auto generated format: airtable-[base_code]-[yyyyMMddhhmm].zip,the timezone is UTC, e.g. airtable-JP-202405031011.zip)'
+    displayName: "enter blob name(required for importing, and optional for exporting, auto generated format: airtable-[base_code]-[yyyyMMddhhmm].zip,the timezone is UTC, e.g. airtable-JP-202405031011.zip)"
     type: string
-    default: 'auto-generated'
+    default: "auto-generated"
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    python3 test.py
-  displayName: 'Run a python script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-    sh test.sh
-  env:
-    TAG: "testing"
-    BASE: "${{parameters.base}}"
-    BLOB: "${{parameters.blob}}"
-  displayName: 'Run a shell script'
+jobs:
+  - job: Sync
+    steps:
+      - script: sh airtable.sh
+        env:
+          SUDO_TOKEN: "$(sudoToken)"
+          API_BASE_URL: "https://api-dev.etab.wfe.digital"
+          BASE: "${{parameters.base}}"
+          CONTAINER: "etab-dev-blob"
+          BLOB: "${{parameters.blob}}"
+        displayName: "Run an Airtable sync script"

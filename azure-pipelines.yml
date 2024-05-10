@@ -4,10 +4,33 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  - none
 
 pool:
   vmImage: ubuntu-latest
+
+parameters:
+  - name: action
+    displayName: choose import or export
+    type: string
+    values:
+      - import
+      - export
+
+  - name: base
+    displayName: "Airtable base code"
+    type: string
+    values:
+      - JP
+      - TW
+      - KR
+      - HK
+      - VAULT
+
+  - name: blob
+    displayName: 'Blob name (optional, default is: airtable-[base_code]-[yyyyMMddhhmm].zip)'
+    type: string
+    default: ''
 
 steps:
 - script: echo Hello, world!

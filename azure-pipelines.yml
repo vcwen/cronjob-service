@@ -39,6 +39,7 @@ jobs:
         env:
           SUDO_TOKEN: "$(SUDO_TOKEN)"
           API_BASE_URL: "https://api-dev.etab.wfe.digital"
+          ACTION: "${{parameters.action}}"
           BASE: "${{parameters.base}}"
           CONTAINER: "etab-dev-blob"
           BLOB: "${{parameters.blob}}"

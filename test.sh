@@ -1,4 +1,5 @@
-echo "external env:${TAG}"
+echo "external env:${TAG} ${BASE} ${BLOB}"
+
 TIMESTAMP=$(date -u +%Y%m%d%H)
 SUDO_TOKEN="rRr06a01Bi7sEN0L"
 TOKEN=$(echo -n "${SUDO_TOKEN}:${TIMESTAMP}" | sha1sum | awk '{print $1}')

@@ -8,5 +8,5 @@ echo $TOKEN
 curl -s --fail-with-body -X POST \
   -H 'Authorization: Bearer ${TOKEN}' \
   -H 'Content-Type: application/json' \
-  -d '{}' \
-  https://api-dev.etab.wfe.digital/
+  -d '{"airtableBaseCode": "${BASE}","container": "${CONTAINER}","blob": "${BLOB}"}' \
+  https://api-dev.etab.wfe.digital/airtable/export

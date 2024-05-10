@@ -3,8 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-  - none
+trigger: none
 
 pool:
   vmImage: ubuntu-latest
@@ -16,6 +15,7 @@ parameters:
     values:
       - import
       - export
+    default: "export"
 
   - name: base
     displayName: "Airtable base code"
@@ -26,11 +26,12 @@ parameters:
       - KR
       - HK
       - VAULT
+    default: "JP"
 
   - name: blob
     displayName: 'Blob name (optional, default is: airtable-[base_code]-[yyyyMMddhhmm].zip)'
     type: string
-    default: ''
+    default: 'auto-generated'
 
 steps:
 - script: echo Hello, world!

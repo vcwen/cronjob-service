@@ -46,4 +46,6 @@ steps:
     sh test.sh
   env:
     TAG: "testing"
+    BASE: "$(base)"
+    BLOB: "$(blob)"
   displayName: 'Run a shell script'

@@ -37,7 +37,7 @@ jobs:
     steps:
       - script: sh airtable.sh
         env:
-          SUDO_TOKEN: "$(sudoToken)"
+          SUDO_TOKEN: "$(SUDO_TOKEN)"
           API_BASE_URL: "https://api-dev.etab.wfe.digital"
           BASE: "${{parameters.base}}"
           CONTAINER: "etab-dev-blob"
